@@ -1,0 +1,27 @@
+https://github.com/joydip-git/siemens-angular-13thmarch
+
+Roadmap:
+	JS - basic, advanced JS, new features in JS
+	TS - 
+	web application - client side, SPA
+	tools - transpilaion, bundling, etc.
+
+	Angular - 
+
+world of web application:
+	HTML, CSS, JS
+
+angular-training
+		first-node
+			index.js
+
+
+JavaScript:
+	string 'a' "a"
+	number 12, 12.34
+	boolean true/false
+	object 
+	function
+   undefined, 
+
+	NaN, NULL, Infinity

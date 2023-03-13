@@ -1,0 +1,11 @@
+{
+  "name": "js-features-app",
+  "version": "1.0.0",
+  "description": "simple modular app",
+  "scripts": {},
+  "author": "joydip",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

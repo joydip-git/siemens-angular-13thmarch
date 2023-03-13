@@ -1,13 +1,15 @@
-const exportableObject = require('./utility')
+// const exportableObject = require('./utility')
 // const addFnRef = exportableObject.addFn
 // const subFnRef = exportableObject.subFn
-const { addFn: addFnRef, subFn: subFnRef } = exportableObject
+// const { addFn: addFnRef, subFn: subFnRef } = exportableObject
+// var addRes = addFnRef(12, 13)
+// var subRes = subFnRef(12, 13)
+import { add, subract } from './utility'
 
-var addRes = addFnRef(12, 13)
-var subRes = subFnRef(12, 13)
+const addRes = add(12, 13)
+const subRes = subract(12, 13)
 console.log(addRes)
 console.log(subRes)
-console.log(module)
 
 /*
 const info = [{

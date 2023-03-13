@@ -25,3 +25,48 @@ JavaScript:
    undefined, 
 
 	NaN, NULL, Infinity
+
+
+
+JavaScript features
+Modules in JavaScript
+JavaScript runtime: web app and node js
+
+module: a single JS/TS file
+
+a. common js format: (used in node js by default)
+export: module.exports = {prop1:member1, prop2: member2,...}
+import: var m = require('./..')
+
+b. ES6:
+export: export member
+import: import {} from './...' 
+
+c. AMD (asynchronous module definition)
+	define([],function(){
+		//code
+	})
+d. UMD (Universal module definition)
+	require([], function(){
+		//code
+	})
+
+module loaders:
+common js module lodaer
+require js module loader - understands AMD format
+system js module loader
+
+challenges
+1. ts should be converted to js: use a tool (transpiler tool- typescript)
+2. my module format has to be converted to AMD
+
+>npm init --yes
+
+>npm i typescript -g
+path: C:\Users\joydip\AppData\Roaming\npm
+
+>npm i typescript --save-dev/npm i typescript -D (dev dependency)
+>npm i typescript --save/npm i typescript (complete dependency)
+
+
+

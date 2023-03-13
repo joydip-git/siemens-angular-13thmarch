@@ -11,6 +11,8 @@ const subRes = subract(12, 13)
 console.log(addRes)
 console.log(subRes)
 
+
+
 /*
 const info = [{
     id: 1,

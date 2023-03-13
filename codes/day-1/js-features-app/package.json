@@ -2,7 +2,9 @@
   "name": "js-features-app",
   "version": "1.0.0",
   "description": "simple modular app",
-  "scripts": {},
+  "scripts": {
+    "compile": "tsc --watch"
+  },
   "author": "joydip",
   "license": "ISC",
   "devDependencies": {

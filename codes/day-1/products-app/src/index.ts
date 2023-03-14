@@ -1,5 +1,29 @@
 import { Product } from "./product";
 
+function createRow(p: Product) {
+    const imgElement = document.createElement('img')
+    imgElement.src = p.imagePath?.toString() ? p.imagePath.toString() : ''
+    // imgElement.setAttribute('src', p.imagePath?.toString() ? <string>p.imagePath : '')
+    imgElement.setAttribute('alt', 'NA')
+
+    const tdImage = document.createElement('td')
+    tdImage.appendChild(imgElement)
+
+    const tdName = document.createElement('td')
+    tdName.innerText = p.name
+
+    const tdPrice = document.createElement('td')
+    tdPrice.innerText = p.price.toString()
+
+    const tdDesc = document.createElement('td')
+    tdDesc.innerText = p.description
+
+    const newRow = document.createElement('tr')
+    newRow.append(tdImage, tdName, tdPrice, tdDesc)
+
+    const tbodyElement = document.querySelector('#tbodyProducts')
+    tbodyElement?.appendChild(newRow)
+}
 function addProduct() {
     const id = (<HTMLInputElement>document.getElementById('txtId')).value
     const name = (<HTMLInputElement>document.getElementById('txtName')).value
@@ -19,12 +43,10 @@ function addProduct() {
                 description: description,
                 imagePath: reader.result
             }
-            console.log(p)
+            createRow(p)
         })
         reader.readAsDataURL(uploadedFile)
     }
-    console.log(p)
-    // const p = new Product(1, 'dellxps', 1000, '', '')
 }
 const btnObject = document.getElementById('btnAdd')
 btnObject?.addEventListener('click', addProduct)

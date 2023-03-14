@@ -1,0 +1,37 @@
+Angular Decorators:
+classes:
+	component	- @Component() - is the one with the design
+	directive - @Directive() - is used to extend the behavior any element
+	pipe 		- @Pipe() - is used for transformation logic
+	service		- @Injectable() - is used so that we can DI some other service into the given service
+	module		- @NgModule() - is used to decorate a class as a module, where other above mentioned assets can be registered
+	
+Every decorator is actually a function (decorator function) and all of them accepts an object as a argument, known as metadata object
+
+@NgModule({
+	//register components, pipes and directives
+	declarations:[],
+	
+	//register services
+	providers:[],
+	
+	//register any built-in or feature modules (child modules)
+	imports:[],
+	
+	//which components should be bootstrapped while this module is bootstrapped
+	bootstrap:[],
+	
+	//
+	exports:[]
+})
+
+code		=>		view [data binding]
+-----------------------------------
+message 	{{message}} 
+
+view 										=> code [event binding]
+------------------------------------------------------
+<element (event)="method()">  method(){}
+
+<element #x>
+x => template reference variable (stores the reference of the DOM element)

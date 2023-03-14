@@ -40,3 +40,5 @@ x => template reference variable (stores the reference of the DOM element)
 1. Template driven form
 2. reactive form
 
+product-entry-form
+

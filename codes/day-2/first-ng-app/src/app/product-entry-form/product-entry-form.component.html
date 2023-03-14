@@ -1,0 +1,37 @@
+<form #frm="ngForm" (submit)="submitProduct(frm.value)">
+    <div>
+        <label for="txtId">
+            Id:
+        </label>
+        <input type="text" id="txtId" placeholder="enter product id" name="productid" ngModel>
+    </div>
+    <div>
+        <label for="txtName">
+            Name:
+        </label>
+        <input type="text" id="txtName" placeholder="enter product name" name="productname" ngModel>
+    </div>
+    <div>
+        <label for="txtDesc">
+            Description:
+        </label>
+        <textarea name="description" id="txtDesc" placeholder="ener product descripttion" ngModel></textarea>
+    </div>
+    <div>
+        <label for="txtPrice">
+            Price:
+        </label>
+        <input type="text" id="txtPrice" placeholder="enter price name" name="price" ngModel>
+    </div>
+    <div>
+        <label for="imgFile">
+            Image:
+        </label>
+        <input type="file" id="imgFile" name="imagePath" ngModel>
+    </div>
+    <div>
+        <button type="submit">
+            Add Product
+        </button>
+    </div>
+</form>

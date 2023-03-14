@@ -3,13 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AnotherComponent } from "./another/another.component";
+import { CalculatorComponent } from './calculator/calculator.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent, AnotherComponent
+    AppComponent, AnotherComponent, CalculatorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [

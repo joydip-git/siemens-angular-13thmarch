@@ -1,0 +1,19 @@
+package: @angular/forms
+module: FormsModule
+ngModel (FormControl), ngForm (FormGroup)
+
+package:@angular/forms
+module: ReactiveFormsModule
+formControl, formControlName, formGroup, formGroupName etc.
+
+package: @angular/core
+module: CommonModule
+directive: *ngIf, *ngIfElse,*ngFor, *ngSwitch
+
+directives:
+	a. attribute directive
+	b. structural directive
+	c. component directive
+
+
+formcontrol.errors => ValidationError

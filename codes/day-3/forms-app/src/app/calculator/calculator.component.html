@@ -1,0 +1,38 @@
+<!-- <form #ctrl="ngForm"> -->
+
+<div>
+    <label for="txtFirst">
+        First Value:
+    </label>
+    <!-- <input type="text" id="txtFirst" placeholder="enter first value" value="{{first}}"
+        (keyup)="updateFirst(firstCtrl.value)" #firstCtrl> -->
+    <input type="text" id="txtFirst" placeholder="enter first value" [(ngModel)]="first">
+    <!-- <input type="text" id="txtFirst" placeholder="enter first value" ngModel name="firstCtrl"> -->
+</div>
+
+<div>
+    <label for="txtSecond">
+        Second Value:
+    </label>
+    <!-- <input type="text" id="txtSecond" placeholder="enter second value" [value]="second"
+        (keyup)="updateSecond(secondCtrl.value)" #secondCtrl> -->
+    <input type="text" id="txtSecond" placeholder="enter second value" [(ngModel)]="second">
+    <!-- <input type="text" id="txtSecond" placeholder="enter second value" ngModel name="secondCtrl"> -->
+</div>
+
+<div>
+    <!-- <button type="button" (click)="calculate(firstCtrl.value, secondCtrl.value)">
+        Calculate
+    </button> -->
+    <button [style.width.px]="btnWidth" type="submit" (click)="calculate()">
+        Calculate
+    </button>
+</div>
+<!-- </form> -->
+
+<div>
+    <label for="txtResult">
+        Result:
+    </label>
+    <input type="text" id="txtResult" value="{{result}}" readonly>
+</div>

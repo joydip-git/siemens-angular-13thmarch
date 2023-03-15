@@ -9,6 +9,7 @@ import { Product } from '../models/product';
 })
 
 export class ProductEntryFormComponent {
+    maxVal = 100
     submitProduct(data: any) {
         const p = <Product>data
         products.push(p)

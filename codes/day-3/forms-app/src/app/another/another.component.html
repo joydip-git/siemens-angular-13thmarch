@@ -1,0 +1,17 @@
+<h2>another component</h2>
+<br>
+
+<div>
+    <label for="txtMessage">
+        Message:
+    </label>
+    <input type="text" id="txtMessage" placeholder="enter message here" #messageCtrl>
+</div>
+<div>
+    <button type="button" (click)="updateMessage(messageCtrl.value)">
+        Change Message
+    </button>
+</div>
+<p>
+    {{message}}
+</p>

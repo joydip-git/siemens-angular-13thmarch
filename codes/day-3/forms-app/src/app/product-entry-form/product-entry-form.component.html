@@ -1,11 +1,11 @@
-<form #frm="ngForm" (submit)="submitProduct(frm.value)">
+<form [formGroup]="productForm" (submit)="submitProduct()">
     <div>
         <label for="txtId">
             Id:
         </label>
-        <input type="number" id="txtId" placeholder="enter product id" name="productid" required [max]="maxVal"
-            #productid="ngModel" ngModel>
-        <span *ngIf="productid?.errors">
+        <!-- <input type="text" id="txtId" placeholder="enter product id" [formControl]="productid"> -->
+        <input type="text" id="txtId" placeholder="enter product id" formControlName="productid">
+        <span *ngIf="productForm.get('productid')?.errors">
             <span *ngIf="(productid?.touched || productid?.dirty) && productid?.errors?.['required']">
                 please enter value
             </span>
@@ -19,29 +19,28 @@
         <label for="txtName">
             Name:
         </label>
-        <input type="text" id="txtName" placeholder="enter product name" name="productname" ngModel
-            #productname="ngModel">
+        <input type="text" id="txtName" placeholder="enter product name" formControlName="productname">
     </div>
     <div>
         <label for="txtDesc">
             Description:
         </label>
-        <textarea name="description" id="txtDesc" placeholder="ener product descripttion" ngModel></textarea>
+        <textarea id="txtDesc" placeholder="ener product descripttion" formControlName="description"></textarea>
     </div>
     <div>
         <label for="txtPrice">
             Price:
         </label>
-        <input type="text" id="txtPrice" placeholder="enter price name" name="price" ngModel>
+        <input type="text" id="txtPrice" placeholder="enter price name" formControlName="price">
     </div>
     <div>
         <label for="imgFile">
             Image:
         </label>
-        <input type="file" id="imgFile" name="imagePath" ngModel>
+        <input type="file" id="imgFile" formControlName="imagePath">
     </div>
     <div>
-        <button type="submit" [disabled]="!frm.valid">
+        <button type="submit" [disabled]="!productForm.valid">
             Add Product
         </button>
     </div>

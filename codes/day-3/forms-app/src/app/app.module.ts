@@ -4,15 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AnotherComponent } from "./another/another.component";
 import { CalculatorComponent } from './calculator/calculator.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ProductEntryFormComponent } from './product-entry-form/product-entry-form.component';
+import { ProductsModule } from './modules/products/products.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent, AnotherComponent, CalculatorComponent, ProductEntryFormComponent
+    AppComponent, AnotherComponent, CalculatorComponent
   ],
   imports: [
-    BrowserModule, FormsModule, ReactiveFormsModule
+    BrowserModule, ProductsModule
   ],
   providers: [],
   bootstrap: [

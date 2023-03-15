@@ -16,4 +16,50 @@ directives:
 	c. component directive
 
 
-formcontrol.errors => ValidationError
+formcontrol.errors => ValidationError {prop:T}
+T=> boolean, string, number, object {}
+
+
+
+localhost:4200 => Home
+
+localhost:4200/login => Login
+localhost:4200/register => Register
+
+localhost:4200/products => ProductList 
+localhost:4200/products/add => AddProduct
+localhost:4200/products/view/1 => ProductDetail
+localhost:4200/products/edit/1 => EditProduct
+
+PageNotFound
+
+localhost:4200/login?returlUrl=products
+
+
+
+app
+	app.module.ts
+	app.component.ts
+	app.component.html
+	app.component.css
+
+	modules
+		products
+			products.module.ts (file)
+			
+			components (folder)
+				product-entry-form (folder)
+					product-entry-form.component.ts
+					product-entry-form.component.html
+					product-entry-form.component.css
+			pipes (folder)
+					
+			directives (folder)
+
+		orders
+			orders.module.ts
+			
+			
+
+
+

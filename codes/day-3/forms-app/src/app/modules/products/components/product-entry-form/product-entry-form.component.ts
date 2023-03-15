@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { products } from '../data/products';
-import { Product } from '../models/product';
+import { products } from '../../../../data/products';
+import { Product } from '../../../../models/product';
 
 @Component({
     selector: 'app-product-entry-form',

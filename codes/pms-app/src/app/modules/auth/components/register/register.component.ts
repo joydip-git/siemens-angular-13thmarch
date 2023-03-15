@@ -13,6 +13,6 @@ export class RegisterComponent {
   };
 
   submitUser() {
-
+    console.log(this.userInfo)
   }
 }

@@ -16,8 +16,8 @@ directives:
 	c. component directive
 
 
-formcontrol.errors => ValidationError {prop:T}
-T=> boolean, string, number, object {}
+formcontrol.errors => ValidationError {prop:any}
+any => boolean, string, number, object {}
 
 
 

@@ -1,0 +1,37 @@
+<form ngForm #frm="ngForm" (submit)="submitUser()">
+
+    <div>
+        <label for="username">UserName:</label>
+        <input type="email" name="username" id="username" [(ngModel)]="userInfo.username" required email
+            #uname="ngModel" placeholder="enter username [in email format]">
+
+        <!-- error displayer -->
+        <span *ngIf="uname.invalid && (uname.dirty || uname.touched)">
+            <div *ngIf="uname.errors?.['required']">
+                username is required
+            </div>
+            <div *ngIf="uname.errors?.['email']">
+                username should be in email format
+            </div>
+        </span>
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" [(ngModel)]='userInfo.password' #pwd="ngModel" required
+            placeholder="enter password [min length6 and max length 12]">
+
+        <!-- error displayer -->
+        <span *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">
+            <span *ngIf="pwd.errors?.['required']">
+                password is required
+            </span>
+        </span>
+    </div>
+
+    <div>
+        <button type="submit" [disabled]="frm.invalid">
+            Register
+        </button>
+    </div>
+</form>

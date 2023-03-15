@@ -1,0 +1,41 @@
+<form [formGroup]="loginForm">
+    <div>
+        <label for="txtUserName">User Name: &nbsp;</label>
+        <input type="email" id="txtUserName">
+        <span *ngIf="username?.errors">
+            <span *ngIf="username?.invalid && (username?.dirty || username?.touched)">
+                <span *ngIf="username?.errors?.['required']">
+                    username is required
+                </span>
+                <span *ngIf="username?.errors?.['email']">
+                    username should be in email format
+                </span>
+            </span>
+        </span>
+    </div>
+
+    <div>
+        <label for="txtPassword">Password: &nbsp;</label>
+        <input type="password" id="txtPassword">
+
+        <span *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <span *ngIf="password?.errors?.['required']">
+                password is required
+            </span>
+            <span *ngIf="password?.errors?.['length']">
+                {{password?.errors?.['length'].message}}
+                &nbsp;&nbsp;
+                length of your password is {{password?.errors?.['length'].actual}}
+            </span>
+            <span *ngIf="password?.errors?.['uppercase']">
+                {{password?.errors?.['uppercase']}}
+            </span>
+            <span *ngIf="password?.errors?.['lowercase']">
+                {{password?.errors?.['lowercase']}}
+            </span>
+            <span *ngIf="password?.errors?.['digit']">
+                {{password?.errors?.['digit']}}
+            </span>
+        </span>
+    </div>
+</form>

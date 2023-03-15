@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductEntryFormComponent } from './components/product-entry-form/product-entry-form.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [
-    ProductEntryFormComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule, FormsModule, ReactiveFormsModule
-  ],
-  exports: [ProductEntryFormComponent]
+  ]
 })
-export class ProductsModule { }
+export class AuthModule { }

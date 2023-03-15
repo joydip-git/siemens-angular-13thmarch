@@ -1,7 +1,7 @@
 <form [formGroup]="loginForm">
     <div>
         <label for="txtUserName">User Name: &nbsp;</label>
-        <input type="email" id="txtUserName">
+        <input type="email" id="txtUserName" formControlName="username">
         <span *ngIf="username?.errors">
             <span *ngIf="username?.invalid && (username?.dirty || username?.touched)">
                 <span *ngIf="username?.errors?.['required']">
@@ -16,7 +16,7 @@
 
     <div>
         <label for="txtPassword">Password: &nbsp;</label>
-        <input type="password" id="txtPassword">
+        <input type="password" id="txtPassword" formControlName="password">
 
         <span *ngIf="password?.invalid && (password?.dirty || password?.touched)">
             <span *ngIf="password?.errors?.['required']">
@@ -37,5 +37,9 @@
                 {{password?.errors?.['digit']}}
             </span>
         </span>
+    </div>
+
+    <div>
+        <input type="submit" value="Login" [disabled]="loginForm.invalid">
     </div>
 </form>

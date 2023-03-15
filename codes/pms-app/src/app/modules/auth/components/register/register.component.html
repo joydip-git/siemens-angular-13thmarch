@@ -7,24 +7,43 @@
 
         <!-- error displayer -->
         <span *ngIf="uname.invalid && (uname.dirty || uname.touched)">
-            <div *ngIf="uname.errors?.['required']">
+            <span *ngIf="uname.errors?.['required']">
                 username is required
-            </div>
-            <div *ngIf="uname.errors?.['email']">
+            </span>
+            <span *ngIf="uname.errors?.['email']">
                 username should be in email format
-            </div>
+            </span>
         </span>
     </div>
 
     <div>
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" [(ngModel)]='userInfo.password' #pwd="ngModel" required
-            placeholder="enter password [min length6 and max length 12]">
+            ngPassword placeholder="enter password [min length6 and max length 12]">
 
         <!-- error displayer -->
         <span *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">
             <span *ngIf="pwd.errors?.['required']">
                 password is required
+            </span>
+            <span *ngIf="pwd?.invalid && (pwd?.dirty || pwd?.touched)">
+                <span *ngIf="pwd?.errors?.['required']">
+                    password is required
+                </span>
+                <span *ngIf="pwd?.errors?.['length']">
+                    {{pwd?.errors?.['length'].message}}
+                    &nbsp;&nbsp;
+                    length of your password is {{pwd?.errors?.['length'].actual}}
+                </span>
+                <span *ngIf="pwd?.errors?.['uppercase']">
+                    {{pwd?.errors?.['uppercase']}}
+                </span>
+                <span *ngIf="pwd?.errors?.['lowercase']">
+                    {{pwd?.errors?.['lowercase']}}
+                </span>
+                <span *ngIf="pwd?.errors?.['digit']">
+                    {{pwd?.errors?.['digit']}}
+                </span>
             </span>
         </span>
     </div>

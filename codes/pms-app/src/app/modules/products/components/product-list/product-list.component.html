@@ -1,0 +1,44 @@
+<ng-template #loadingTemplate>
+    <span>Loading...please wait</span>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+
+<ng-template #noRecordTemplate>
+    <span>No record found</span>
+</ng-template>
+
+<div *ngIf="loadingCompleted;else loadingTemplate">
+    <div *ngIf="errorMessage==='';else errorTemplate">
+        <div *ngIf="products;else noRecordTemplate">
+            <h2>{{title}}</h2>
+            <br><br>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Rating</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let p of products">
+                        <td>
+                            <img src="{{p.imageUrl}}" alt="NA" title="{{p.productName}}">
+                        </td>
+                        <td>{{p.productName}}</td>
+                        <td>{{p.price}}</td>
+                        <td>{{p.starRating}}</td>
+                        <td>
+                            <button type="button">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

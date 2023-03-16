@@ -48,6 +48,56 @@ http://127.0.0.1:3003/products/1	PUT			id, product	{ message:'', data:[{},{}] }
 http://127.0.0.1:3003/products/1	DELETE		id				{ message:'', data:[{},{}] }		
 																			{ message:'', data:null }
 
+ng g c modules/products/components/add-product 
+ng g c modules/products/components/view-product 
+ng g c modules/products/components/edit-product 
+ng g c modules/products/components/filter-product
+
+all components must be registered with products.module.ts file
+
+ng g c components/home
+ng g c components/dashboard
+ng g c components/page-not-found
+
+all components must be registered with app.module.ts file
+
+
+Routing in client-side SPA:
+to decide which component to render dynamically in index.html file
+
+package: @angular/router
+module: RouterModule
+
+services:
+Router
+
+simple classes:
+Route => path, component
+Route[] (Routes)
+
+type Routes = Route[]
+
+URL											path						component
+-------------------------------------------------------
+products.module.ts
+localhost:4200/products 			products					PLC
+localhost:4200/products/view/1 	products/view/:id		VPC
+localhost:4200/products/edit/1 	products/edit/:id		EPC
+localhost:4200/products/add	 	products/add				APC
+
+auth.module.ts
+localhost:4200/login				 	login							LIC
+localhost:4200/register				register					RC
+
+app.module.ts
+localhost:4200/home	 				home							HC
+localhost:4200							redirect to /home		HC   [Redirection route]
+anything else								**								PNFC [wildcard route]
+
+
+
+
+
 
 
 

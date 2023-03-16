@@ -16,6 +16,7 @@ Http Requests:
 package name: @angular/common/http
 module name: HttpClientModule
 HttpClient: built-in service class to make HTTP requests
+provides methods such as: get(), post(), put(), delete(), patch() etc. to make HTTP requests
 
 RxJS: 
 Objects:

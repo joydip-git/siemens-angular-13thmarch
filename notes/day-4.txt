@@ -1,0 +1,18 @@
+service:
+	class with reusable piece of code
+
+registration:
+	a. asset level (Component, Directive, Pipe)
+		  @Component({providers:[]})
+	b. different assets of a feature module (feature module level)
+			@NgModule({providers:[]})
+	c. different assets from different modules (root module level)
+			@NgModule({providers:[]})
+
+Injector: create instance and supply the reference to the asset
+
+
+Http Requests:
+package name: @angular/common/http
+module name: HttpClientModule
+HttpClient: built-in service class to make HTTP requests

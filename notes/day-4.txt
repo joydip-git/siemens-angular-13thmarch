@@ -25,3 +25,5 @@ Observable, Subject, BehaviorSubject, ReplaySubject, Subscription, Observer etc.
 Operators: (functions) => should be passed to pipe() method of Observable
 map, filter, take, takeWhile, tap etc.
 
+Component Lifecycle and lifecycle hooks (methods)
+

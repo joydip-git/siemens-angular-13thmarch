@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IAppService } from './app-service.contract';
 import { SERVICE_TOKEN } from './constants';
@@ -10,16 +10,33 @@ import { Post } from './post';
   styleUrls: ['./app.component.css'],
   //providers: [AppService]
 })
-export class AppComponent {
-  title = 'Welcome to Service and Http Requests'
+export class AppComponent implements OnInit, OnDestroy {
+  private postSubscription?: Subscription;
 
-  private postSubscription: Subscription;
+  title = 'All Posts'
   posts?: Post[];
+  loadingCompleted = false
+  errorMessage = ''
+
   constructor(@Inject(SERVICE_TOKEN) private _svc: IAppService) {
+
+  }
+  ngOnDestroy(): void {
+    this.postSubscription?.unsubscribe()
+  }
+  ngOnInit(): void {
     this.postSubscription = this._svc.getPosts().subscribe({
-      next: (data: Post[]) => { this.posts = data },
-      error: (err: Error) => { console.log(err.message) },
-      complete: () => { }
+      next: (data: Post[]) => {
+        this.posts = data.slice(0, 10)
+        this.loadingCompleted = true
+        this.errorMessage = ''
+      },
+      error: (err: Error) => {
+        this.posts = undefined
+        this.loadingCompleted = true
+        this.errorMessage = err.message
+      },
+      //complete: () => { }
     })
   }
 }

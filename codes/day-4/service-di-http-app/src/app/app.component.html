@@ -1,1 +1,25 @@
 <h2>{{title}}</h2>
+
+<ng-template #loadingTemplate>
+    <span>Loading...please wait</span>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+
+<ng-template #noRecordTemplate>
+    <span>No record found</span>
+</ng-template>
+
+<div *ngIf="loadingCompleted;else loadingTemplate">
+    <div *ngIf="errorMessage==='';else errorTemplate">
+        <div *ngIf="posts;else noRecordTemplate">
+            <ol>
+                <li *ngFor="let p of posts">
+                    {{p.title}}
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

@@ -25,5 +25,32 @@ Observable, Subject, BehaviorSubject, ReplaySubject, Subscription, Observer etc.
 Operators: (functions) => should be passed to pipe() method of Observable
 map, filter, take, takeWhile, tap etc.
 
-Component Lifecycle and lifecycle hooks (methods)
+Component Lifecycle and lifecycle hooks (methods):
+constructor
+X => OnX => ngOnX
+changes => OnChanges => ngOnChanges
+init		=> OnInit			=> ngOnInit
+destroy	
+
+URL										METHOD		data		response
+------------------------------------------------------------------------------------
+http://127.0.0.1:3003/products	GET			NA				{ message:'', data:[{},{}] }
+	
+http://127.0.0.1:3003/products/1	GET			id				{ message:'', data:{} }		
+																			{ message:'', data:null }	
+
+http://127.0.0.1:3003/products	POST			product		{ message:'', data:[{},{}] }		
+																			{ message:'', data:null }	
+
+http://127.0.0.1:3003/products/1	PUT			id, product	{ message:'', data:[{},{}] }		
+																			{ message:'', data:null }	
+
+http://127.0.0.1:3003/products/1	DELETE		id				{ message:'', data:[{},{}] }		
+																			{ message:'', data:null }
+
+
+
+
+
+
 

@@ -1,3 +1,6 @@
+import { Observable } from "rxjs";
+import { Post } from "./post";
+
 export interface IAppService {
-    getValue(): string;
+    getPosts(): Observable<Post[]>;
 }

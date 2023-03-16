@@ -16,3 +16,11 @@ Http Requests:
 package name: @angular/common/http
 module name: HttpClientModule
 HttpClient: built-in service class to make HTTP requests
+
+RxJS: 
+Objects:
+Observable, Subject, BehaviorSubject, ReplaySubject, Subscription, Observer etc.
+
+Operators: (functions) => should be passed to pipe() method of Observable
+map, filter, take, takeWhile, tap etc.
+

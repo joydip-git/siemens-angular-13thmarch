@@ -48,6 +48,14 @@ http://127.0.0.1:3003/products/1	PUT			id, product	{ message:'', data:[{},{}] }
 http://127.0.0.1:3003/products/1	DELETE		id				{ message:'', data:[{},{}] }		
 																			{ message:'', data:null }
 
+http://127.0.0.1:3003/auth/authenticate	POST		user			{ message:'', data:<token> }		
+																			{ message:'', data:null }
+
+http://127.0.0.1:3003/auth/register	 	POST		user				{ message:'', data:{user object} }		
+																			{ message:'', data:null }
+
+
+
 ng g c modules/products/components/add-product 
 ng g c modules/products/components/view-product 
 ng g c modules/products/components/edit-product 

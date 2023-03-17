@@ -10,3 +10,5 @@ export const PRODUCT_STORAGE_SERVICE_TYPE = StorageService<Product>
 
 export const PRODUCT_SERVICE_URL_TOKEN = 'PRODUCT_SERVICE_URL_TOKEN'
 export const PRODUCT_SERVICE_URL_VALUE = 'http://127.0.0.1:3003/products'
+
+export const AUTH_SERVICE_URL_VALUE = 'http://127.0.0.1:3003/auth'

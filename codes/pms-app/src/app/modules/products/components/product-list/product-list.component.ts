@@ -1,9 +1,11 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { PRODUCT_SERVICE_TOKEN } from 'src/app/constants/app-constants';
+import { PRODUCT_SERVICE_TOKEN, PRODUCT_STORAGE_SERVICE_TOKEN } from 'src/app/constants/app-constants';
 import { ApiResponse } from 'src/app/models/api-response';
 import { Product } from 'src/app/models/product';
 import { IProductService } from 'src/app/models/product-service.contract';
+import { IStorageService } from 'src/app/models/storage-service.contract';
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +19,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   errorMessage = ''
 
   private productsSubscription?: Subscription;
-  constructor(@Inject(PRODUCT_SERVICE_TOKEN) private _ps: IProductService) {
+  constructor(
+    @Inject(PRODUCT_SERVICE_TOKEN) private _ps: IProductService,
+    @Inject(PRODUCT_STORAGE_SERVICE_TOKEN) private _storage: IStorageService<Product>,
+    private _router: Router
+  ) {
 
   }
   ngOnDestroy(): void {
@@ -43,6 +49,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
       }
     })
   }
-
-
+  saveProduct(p: Product) {
+    this._storage.publish(p)
+    this._router.navigate(['/products/view'])
+  }
 }

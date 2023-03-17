@@ -28,7 +28,7 @@
                 <tbody>
                     <tr *ngFor="let p of products">
                         <td>
-                            <img routerLink="/products/view" src="{{p.imageUrl}}" alt="NA" title="{{p.productName}}">
+                            <img (click)="saveProduct(p)" src="{{p.imageUrl}}" alt="NA" title="{{p.productName}}">
                         </td>
                         <td>{{p.productName}}</td>
                         <td>{{p.price}}</td>

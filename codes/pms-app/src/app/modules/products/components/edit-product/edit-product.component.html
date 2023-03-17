@@ -1,1 +1,55 @@
-<p>edit-product works!</p>
+<ng-template #loadingTemplate>
+    <span>Loading...please wait</span>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+
+<ng-template #noRecordTemplate>
+    <span>No record found</span>
+</ng-template>
+
+<div *ngIf="loadingCompleted;else loadingTemplate">
+    <div *ngIf="errorMessage==='';else errorTemplate">
+        <div *ngIf="product;else noRecordTemplate">
+            <form *ngIf="editProductForm" [formGroup]="editProductForm">
+                <div>
+                    <label for="txtId">Id:</label>
+                    <input type="text" id="txtId" readonly formControlName="productId">
+                </div>
+                <div>
+                    <label for="txtName">Name:</label>
+                    <input type="text" id="txtName" formControlName="productName">
+                </div>
+                <div>
+                    <label for="txtCode">Code:</label>
+                    <input type="text" id="txtCode" formControlName="productCode">
+                </div>
+                <div>
+                    <label for="txtDate">Released On:</label>
+                    <input type="text" id="txtDate" formControlName="releaseDate">
+                </div>
+                <div>
+                    <label for="txtPrice">Pice:</label>
+                    <input type="text" id="txtPrice" formControlName="price">
+                </div>
+                <div>
+                    <label for="txtRating">Rating:</label>
+                    <input type="text" id="txtRating" formControlName="starRating">
+                </div>
+                <div>
+                    <label for="txtDesc">Description:</label>
+                    <textarea id="txtDesc" formControlName="description"></textarea>
+                </div>
+                <div>
+                    <label for="fileImage">Select an Image:</label>
+                    <input type="file" id="fileImage" formControlName="imageUrl">
+                </div>
+                <div>
+                    <input type="submit" value="Edit Product">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

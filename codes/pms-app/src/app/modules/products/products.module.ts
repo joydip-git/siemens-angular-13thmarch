@@ -8,6 +8,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { FilterProductComponent } from './components/filter-product/filter-product.component';
 import { ProductsRoutingModule } from './products-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +21,7 @@ import { ProductsRoutingModule } from './products-routing.module';
     FilterProductComponent
   ],
   imports: [
-    CommonModule, HttpClientModule, ProductsRoutingModule
+    CommonModule, HttpClientModule, ProductsRoutingModule, FormsModule, ReactiveFormsModule
   ],
   providers: [
     {

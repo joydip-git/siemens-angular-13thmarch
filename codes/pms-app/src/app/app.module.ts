@@ -8,7 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
-import { STORAGE_SERVICE_TOKEN, STORAGE_SERVICE_TYPE } from './constants/app-constants';
+import { PRODUCT_STORAGE_SERVICE_TOKEN, PRODUCT_STORAGE_SERVICE_TYPE } from './constants/app-constants';
 
 @NgModule({
   declarations: [
@@ -22,8 +22,8 @@ import { STORAGE_SERVICE_TOKEN, STORAGE_SERVICE_TYPE } from './constants/app-con
   ],
   providers: [
     {
-      provide: STORAGE_SERVICE_TOKEN,
-      useClass: STORAGE_SERVICE_TYPE
+      provide: PRODUCT_STORAGE_SERVICE_TOKEN,
+      useClass: PRODUCT_STORAGE_SERVICE_TYPE
     }
   ],
   bootstrap: [AppComponent]

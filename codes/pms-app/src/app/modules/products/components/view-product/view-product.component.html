@@ -1,2 +1,21 @@
-<p>view-product works!</p>
-<button type="button">Edit</button>
+<ng-template #loadingTemplate>
+    <span>Loading...please wait</span>
+</ng-template>
+
+<ng-template #errorTemplate>
+    <span>{{errorMessage}}</span>
+</ng-template>
+
+<ng-template #noRecordTemplate>
+    <span>No record found</span>
+</ng-template>
+
+<div *ngIf="loadingCompleted;else loadingTemplate">
+    <div *ngIf="errorMessage==='';else errorTemplate">
+        <div *ngIf="product;else noRecordTemplate">
+            <span>{{product.productName}}</span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button [routerLink]="['/products/edit',product.productId]" type="button">Edit</button>
+        </div>
+    </div>
+</div>

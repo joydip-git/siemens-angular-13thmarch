@@ -1,6 +1,9 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TOKEN_STORAGE_SERVICE_TOKEN } from 'src/app/constants/app-constants';
+import { IStorageService } from 'src/app/models/storage-service.contract';
 import { User } from 'src/app/models/user';
 import { AuthService } from '../../services/auth.service';
 import { passwordChecker } from '../../validators/password-validator';
@@ -12,16 +15,20 @@ import { passwordChecker } from '../../validators/password-validator';
 })
 export class LoginComponent implements OnDestroy {
   private authSubscription?: Subscription;
-  constructor(private authSvc: AuthService) {
-
-  }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+  errorMessage = ''
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, passwordChecker(6, 12)])
   })
+
+  constructor(
+    private authSvc: AuthService,
+    @Inject(TOKEN_STORAGE_SERVICE_TOKEN) private _storage: IStorageService<string>,
+    private _router: Router,
+    private route: ActivatedRoute
+  ) {
+
+  }
   get username() {
     return this.loginForm.get('username')
   }
@@ -29,8 +36,34 @@ export class LoginComponent implements OnDestroy {
     return this.loginForm.get('password')
   }
 
+  ngOnDestroy(): void {
+    this.authSubscription?.unsubscribe()
+  }
+
   submitUser() {
     const loggedInUser = <User>this.loginForm.value
-    this.authSvc.authenticate(loggedInUser).subscribe()
+    this.authSubscription = this.authSvc
+      .authenticate(loggedInUser)
+      .subscribe({
+        next: (response) => {
+          if (response.data !== null) {
+            console.log(response.data)
+            this._storage.publish(response.data)
+          } else {
+            this.errorMessage = response.message
+          }
+        },
+        error: (err: Error) => {
+          this.errorMessage = err.message
+        },
+        complete: () => {
+          const snapshot = this.route.snapshot
+          const returnUrl = snapshot.queryParams['returnUrl']
+          if (returnUrl) {
+            this._router.navigate([`/${returnUrl}`])
+          } else
+            this._router.navigate(['/products'])
+        }
+      })
   }
 }

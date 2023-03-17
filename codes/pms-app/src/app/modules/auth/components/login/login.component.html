@@ -45,3 +45,7 @@
         <a routerLink="/register">New User? Register Here</a>
     </div>
 </form>
+
+<div *ngIf="errorMessage!==''">
+    <span>{{errorMessage}}</span>
+</div>

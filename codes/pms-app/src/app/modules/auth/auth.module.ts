@@ -4,15 +4,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordValidatorDirective } from './directives/password-validator.directive';
-import { Routes, Route, RouterModule } from "@angular/router";
+import { AuthRoutingModule } from './auth-routing.module';
 
-const routes: Routes = [{
-  path: 'login',
-  component: LoginComponent
-}, {
-  path: 'register',
-  component: RegisterComponent
-}]
+
 
 @NgModule({
   declarations: [
@@ -24,8 +18,12 @@ const routes: Routes = [{
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    AuthRoutingModule
   ],
   exports: []
 })
-export class AuthModule { }
+export class AuthModule {
+  constructor() {
+    console.log('AuthModule object')
+  }
+}

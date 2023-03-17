@@ -7,6 +7,7 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { ViewProductComponent } from './components/view-product/view-product.component';
 import { FilterProductComponent } from './components/filter-product/filter-product.component';
+import { ProductsRoutingModule } from './products-routing.module';
 
 
 
@@ -19,7 +20,7 @@ import { FilterProductComponent } from './components/filter-product/filter-produ
     FilterProductComponent
   ],
   imports: [
-    CommonModule, HttpClientModule
+    CommonModule, HttpClientModule, ProductsRoutingModule
   ],
   providers: [
     {
@@ -33,4 +34,8 @@ import { FilterProductComponent } from './components/filter-product/filter-produ
   ],
   exports: [ProductListComponent]
 })
-export class ProductsModule { }
+export class ProductsModule {
+  constructor() {
+    console.log('ProductsModule object')
+  }
+}

@@ -9,6 +9,7 @@ import { ViewProductComponent } from './components/view-product/view-product.com
 import { FilterProductComponent } from './components/filter-product/filter-product.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductRoutesGuard } from './services/product-routes.guard';
 
 
 
@@ -24,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule, HttpClientModule, ProductsRoutingModule, FormsModule, ReactiveFormsModule
   ],
   providers: [
+    ProductRoutesGuard,
     {
       provide: PRODUCT_SERVICE_URL_TOKEN,
       useValue: PRODUCT_SERVICE_URL_VALUE

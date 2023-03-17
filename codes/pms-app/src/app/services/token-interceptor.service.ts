@@ -8,6 +8,7 @@ import { Observable } from "rxjs";
 export class TokenInterceptorService implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+        console.log(req.url)
         const token = sessionStorage.getItem('token')
         const clonedRequest = req.clone({
             headers: req.headers.append(

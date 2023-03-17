@@ -46,7 +46,7 @@ export class LoginComponent implements OnDestroy {
       .subscribe({
         next: (response) => {
           if (response.data !== null) {
-            console.log(response.data)
+            //console.log(response.data)
             sessionStorage.setItem('token', response.data)
           } else {
             this.errorMessage = response.message

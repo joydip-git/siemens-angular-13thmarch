@@ -10,6 +10,7 @@ import { FilterProductComponent } from './components/filter-product/filter-produ
 import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductRoutesGuard } from './services/product-routes.guard';
+import { ErrorTemplateComponent } from './components/error-template/error-template.component';
 
 
 
@@ -19,7 +20,8 @@ import { ProductRoutesGuard } from './services/product-routes.guard';
     AddProductComponent,
     EditProductComponent,
     ViewProductComponent,
-    FilterProductComponent
+    FilterProductComponent,
+    ErrorTemplateComponent
   ],
   imports: [
     CommonModule, HttpClientModule, ProductsRoutingModule, FormsModule, ReactiveFormsModule

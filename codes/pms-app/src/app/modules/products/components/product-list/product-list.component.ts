@@ -26,6 +26,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ) {
 
   }
+
+  textUpdated(text: string) {
+    console.log(text)
+  }
   ngOnDestroy(): void {
     this.productsSubscription?.unsubscribe()
   }

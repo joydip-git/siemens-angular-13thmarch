@@ -3,20 +3,24 @@
 </ng-template>
 
 <ng-template #errorTemplate>
-    <span>{{errorMessage}}</span>
+    <app-error-template [errorData]="errorMessage">
+    </app-error-template>
 </ng-template>
 
 <ng-template #noRecordTemplate>
     <span>No record found</span>
 </ng-template>
 
-<div *ngIf="loadingCompleted;else loadingTemplate">
+<div class="container" *ngIf="loadingCompleted;else loadingTemplate">
     <div *ngIf="errorMessage==='';else errorTemplate">
         <div *ngIf="products;else noRecordTemplate">
             <h2>{{title}}</h2>
+
             <br><br>
-            <table>
-                <thead>
+            <app-filter-product (textChanged)="textUpdated($event)"></app-filter-product>
+            <br><br>
+            <table class="table table-hover">
+                <thead class="theadStyle">
                     <tr>
                         <th>Image</th>
                         <th>Name</th>
@@ -25,7 +29,7 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-dark">
                     <tr *ngFor="let p of products">
                         <td>
                             <img (click)="saveProduct(p)" src="{{p.imageUrl}}" alt="NA" title="{{p.productName}}">
@@ -34,7 +38,7 @@
                         <td>{{p.price}}</td>
                         <td>{{p.starRating}}</td>
                         <td>
-                            <button type="button">Delete</button>
+                            <button class="btn btn-danger" type="button">Delete</button>
                         </td>
                     </tr>
                 </tbody>

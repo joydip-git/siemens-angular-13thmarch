@@ -23,7 +23,6 @@ export class LoginComponent implements OnDestroy {
 
   constructor(
     private authSvc: AuthService,
-    @Inject(TOKEN_STORAGE_SERVICE_TOKEN) private _storage: IStorageService<string>,
     private _router: Router,
     private route: ActivatedRoute
   ) {
@@ -48,7 +47,7 @@ export class LoginComponent implements OnDestroy {
         next: (response) => {
           if (response.data !== null) {
             console.log(response.data)
-            this._storage.publish(response.data)
+            sessionStorage.setItem('token', response.data)
           } else {
             this.errorMessage = response.message
           }

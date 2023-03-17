@@ -7,7 +7,7 @@ import { PasswordValidatorDirective } from './directives/password-validator.dire
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { TOKEN_STORAGE_SERVICE_TOKEN, TOKEN_STORAGE_SERVICE_TYPE } from 'src/app/constants/app-constants';
+// import { TOKEN_STORAGE_SERVICE_TOKEN, TOKEN_STORAGE_SERVICE_TYPE } from 'src/app/constants/app-constants';
 
 
 
@@ -27,10 +27,10 @@ import { TOKEN_STORAGE_SERVICE_TOKEN, TOKEN_STORAGE_SERVICE_TYPE } from 'src/app
   exports: [],
   providers: [
     AuthService,
-    {
-      provide: TOKEN_STORAGE_SERVICE_TOKEN,
-      useClass: TOKEN_STORAGE_SERVICE_TYPE
-    }
+    // {
+    //   provide: TOKEN_STORAGE_SERVICE_TOKEN,
+    //   useClass: TOKEN_STORAGE_SERVICE_TYPE
+    // }
   ]
 })
 export class AuthModule {

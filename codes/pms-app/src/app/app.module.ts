@@ -9,6 +9,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PRODUCT_STORAGE_SERVICE_TOKEN, PRODUCT_STORAGE_SERVICE_TYPE } from './constants/app-constants';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,11 @@ import { PRODUCT_STORAGE_SERVICE_TOKEN, PRODUCT_STORAGE_SERVICE_TYPE } from './c
     {
       provide: PRODUCT_STORAGE_SERVICE_TOKEN,
       useClass: PRODUCT_STORAGE_SERVICE_TYPE
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]

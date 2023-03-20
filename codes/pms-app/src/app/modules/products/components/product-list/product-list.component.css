@@ -1,3 +1,7 @@
 .theadStyle {
   background-color: burlywood;
 }
+.imgStyle {
+  margin: 2px;
+  width: 50px;
+}

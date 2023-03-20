@@ -23,12 +23,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
     @Inject(PRODUCT_SERVICE_TOKEN) private _ps: IProductService,
     @Inject(PRODUCT_STORAGE_SERVICE_TOKEN) private _storage: IStorageService<Product>,
     private _router: Router
-  ) {
+  ) { }
 
-  }
-
+  filterText = ''
   textUpdated(text: string) {
-    console.log(text)
+    this.filterText = text
   }
   ngOnDestroy(): void {
     this.productsSubscription?.unsubscribe()

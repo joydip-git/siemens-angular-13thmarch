@@ -17,7 +17,10 @@
             <h2>{{title}}</h2>
 
             <br><br>
-            <app-filter-product (textChanged)="textUpdated($event)"></app-filter-product>
+            <app-filter-product (textChanged)="textUpdated($event)">
+
+            </app-filter-product>
+
             <br><br>
             <table class="table table-hover">
                 <thead class="theadStyle">
@@ -30,12 +33,13 @@
                     </tr>
                 </thead>
                 <tbody class="table-dark">
-                    <tr *ngFor="let p of products">
+                    <tr *ngFor="let p of (products|productfilter:filterText)">
                         <td>
-                            <img (click)="saveProduct(p)" src="{{p.imageUrl}}" alt="NA" title="{{p.productName}}">
+                            <img class='imgStyle' (click)="saveProduct(p)" src="{{p.imageUrl}}" alt="NA"
+                                title="{{p.productName}}">
                         </td>
-                        <td>{{p.productName}}</td>
-                        <td>{{p.price}}</td>
+                        <td>{{p.productName|uppercase}}</td>
+                        <td>{{p.price|currency:'INR'}}</td>
                         <td>{{p.starRating}}</td>
                         <td>
                             <button class="btn btn-danger" type="button">Delete</button>

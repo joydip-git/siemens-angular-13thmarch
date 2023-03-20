@@ -11,6 +11,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductRoutesGuard } from './services/product-routes.guard';
 import { ErrorTemplateComponent } from './components/error-template/error-template.component';
+import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 
 
@@ -21,10 +22,15 @@ import { ErrorTemplateComponent } from './components/error-template/error-templa
     EditProductComponent,
     ViewProductComponent,
     FilterProductComponent,
-    ErrorTemplateComponent
+    ErrorTemplateComponent,
+    ProductFilterPipe
   ],
   imports: [
-    CommonModule, HttpClientModule, ProductsRoutingModule, FormsModule, ReactiveFormsModule
+    CommonModule,
+    HttpClientModule,
+    ProductsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductRoutesGuard,
